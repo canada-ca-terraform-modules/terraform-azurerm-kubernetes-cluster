@@ -336,6 +336,18 @@ variable "oidc_issuer" {
   }
 }
 
+
+#######################
+### Storage Profile ###
+#######################
+
+variable "blob_driver_enabled" {
+  # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#blob_driver_enabled-1
+  description = "Enable/Disable Blob CSI Driver"
+  type        = bool
+  default     = false
+}
+
 ######################################
 ### OS Profile / Login Credentials ###
 ######################################

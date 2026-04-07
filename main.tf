@@ -266,6 +266,10 @@ resource "azurerm_kubernetes_cluster" "this" {
   oidc_issuer_enabled           = var.oidc_issuer.enabled
   workload_identity_enabled     = var.oidc_issuer.workload_identity_enabled
 
+  storage_profile {
+    blob_driver_enabled = var.blob_driver_enabled
+  }
+
   tags = local.tags
 }
 
