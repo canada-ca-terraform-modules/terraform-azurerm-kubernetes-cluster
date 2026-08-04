@@ -182,6 +182,8 @@ resource "azurerm_kubernetes_cluster" "this" {
     }
 
     ultra_ssd_enabled = true
+
+    tags = local.tags
   }
 
   dynamic "auto_scaler_profile" {

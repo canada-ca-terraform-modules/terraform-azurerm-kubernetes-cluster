@@ -89,7 +89,8 @@ Examples for this module along with various configurations can be found in the [
 
 | Date       | Release | Change                                                                                                                 |
 | ---------- | ------- | ---------------------------------------------------------------------------------------------------------------------- |
-| 2026-05-26 | v6.7.0  | Enable Azure Workload Identity.
+| 2026-07-30 | v6.8.0  | Add tags to default nodepool.                                                                                             |
+| 2026-05-26 | v6.7.0  | Enable Azure Workload Identity.                                                                                        |
 | 2026-04-02 | v6.6.0  | Add Storage Profile. Includes `blob_driver_enabled`. Defaults to `False`.                                              |
 | 2025-10-20 | v6.5.2  | Add variable `support_plan`. Change default for `sku_tier` to `Standard`.                                              |
 | 2025-01-17 | v6.5.1  | Fix error when no diagnostic settings are set                                                                          |
