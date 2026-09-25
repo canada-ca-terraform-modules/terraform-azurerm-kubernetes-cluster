@@ -40,13 +40,13 @@ variable "kubernetes_version" {
   default     = "1.17.16"
 }
 
-variable "automatic_channel_upgrade" {
+variable "automatic_upgrade_channel" {
   description = "Automatically perform upgrades of the Kubernetes cluster (none, patch, rapid, stable)"
   type        = string
   default     = "none"
 }
 
-variable "node_os_channel_upgrade" {
+variable "node_os_upgrade_channel" {
   description = "The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are Unmanaged, SecurityPatch, NodeImage and None."
   type        = string
   default     = null
@@ -95,9 +95,9 @@ variable "maintenance_window_node_os" {
 variable "api_server" {
   description = "Configuration for the cluster's API server."
   type = object({
-    authorized_ip_ranges     = optional(list(string))
-    subnet_id                = optional(string)
-    vnet_integration_enabled = optional(bool)
+    authorized_ip_ranges                = optional(list(string))
+    subnet_id                           = optional(string)
+    virtual_network_integration_enabled = optional(bool)
   })
   default = null
 }
@@ -262,10 +262,10 @@ variable "default_node_pool" {
     node_taints          = optional(list(string), [])
     only_critical_addons = optional(bool, true) # Only run critical workloads (AKS managed) on the node pool when enabled
 
-    node_count             = optional(number, 3) # Only used if enable_auto_scaling is set to false
-    enable_auto_scaling    = optional(bool, false)
-    auto_scaling_min_nodes = optional(number, 3) # Only used if enable_auto_scaling = true
-    auto_scaling_max_nodes = optional(number, 5) # Only used if enable_auto_scaling = true
+    node_count             = optional(number, 3) # Only used if auto_scaling_enabled is set to false
+    auto_scaling_enabled   = optional(bool, false)
+    auto_scaling_min_nodes = optional(number, 3) # Only used if auto_scaling_enabled = true
+    auto_scaling_max_nodes = optional(number, 5) # Only used if auto_scaling_enabled = true
     max_pods               = optional(number, 60)
 
     upgrade_settings = optional(object({
@@ -278,9 +278,9 @@ variable "default_node_pool" {
       node_soak_duration_in_minutes = 0
     })
 
-    enable_host_encryption = optional(bool, false)
-    os_disk_size_gb        = optional(number, 256)
-    os_disk_type           = optional(string, "managed")
+    host_encryption_enabled = optional(bool, false)
+    os_disk_size_gb         = optional(number, 256)
+    os_disk_type            = optional(string, "managed")
   })
 }
 
